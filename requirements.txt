@@ -1,0 +1,5 @@
+streamlit
+google-genai
+google-cloud-vision
+pillow
+python-dotenv
