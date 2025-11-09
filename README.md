@@ -14,9 +14,7 @@ VNFood Recognition là hệ thống nhận dạng hình ảnh được thiết k
 
 ## Tổng quan
 
-VNFood Recognition được xây dựng bằng các kỹ thuật học máy hiện đại, sử dụng các mạng nơ-ron tích chập (CNN) để phân tích hình ảnh các món ăn. Hệ thống này đã được huấn luyện trên một bộ dữ liệu các món ăn Việt Nam, giúp nó dự đoán chính xác các món ăn từ hình ảnh. 
-
-Dự án này là lựa chọn lý tưởng cho các nhà phát triển muốn tích hợp khả năng nhận diện món ăn vào ứng dụng của mình, hoặc các nhà nghiên cứu đang làm việc với bài toán phân loại hình ảnh và thị giác máy tính.
+VNFood Recognition được xây dựng bằng các kỹ thuật học máy hiện đại, sử dụng các mạng nơ-ron tích chập (CNN) và sử dụng Google Vision API để phân tích hình ảnh các món ăn. Hệ thống này đã được huấn luyện trên một bộ dữ liệu các món ăn Việt Nam, giúp nó dự đoán chính xác các món ăn từ hình ảnh. 
 
 ## Tính năng
 
@@ -24,6 +22,7 @@ Dự án này là lựa chọn lý tưởng cho các nhà phát triển muốn t
 - Cung cấp điểm tin cậy cho các dự đoán.
 - Giao diện dễ sử dụng để tích hợp mô hình vào ứng dụng.
 - Được xây dựng bằng các thư viện học sâu phổ biến như TensorFlow/PyTorch (tùy thuộc vào thư viện được sử dụng).
+- Cung cấp kết quả: độ chính xác, mô tả món ăn, cách chế biến và cách thưởng thức
 
 ## Cài đặt
 
@@ -34,6 +33,7 @@ Dự án này là lựa chọn lý tưởng cho các nhà phát triển muốn t
 - Python 3.x
 - pip (trình cài đặt gói Python)
 - TensorFlow/PyTorch (tùy thuộc vào thư viện được sử dụng)
+- Google Vision API (https://aistudio.google.com/api-keys)
 
 ### Bước 1: Clone repository
 
@@ -57,42 +57,32 @@ Cài đặt các gói Python cần thiết:
 pip install -r requirements.txt
 ```
 
-### Bước 3: Tải về hoặc chuẩn bị bộ dữ liệu (nếu có)
+### Bước 3: Chuẩn bị API
 
-Nếu dự án sử dụng bộ dữ liệu tùy chỉnh, hãy làm theo hướng dẫn trong thư mục `data` để tải và chuẩn bị bộ dữ liệu. Nếu bộ dữ liệu đã có sẵn, bạn có thể bỏ qua bước này.
+Truy cập vào: https://aistudio.google.com/api-keys và dán API key của bạn vào thư mục:
+```bash
+.streamlit/secrets.toml
+```
+Dán key của bạn vào dòng code này
+```toml
+[general]
+GOOGLE_API_KEY = "API key here"
+```
 
 ### Bước 4: Chạy hệ thống
 
-Để bắt đầu phân loại hình ảnh món ăn, sử dụng lệnh sau:
+Để chạy ứng dụng, chạy theo dòng lệnh này ở Command Prompt hoặc Terminal trên VSCode:
 
 ```bash
-python classify.py --image_path path_to_your_image.jpg
+streamlit run app.py
 ```
 
-Lệnh này sẽ xử lý hình ảnh đầu vào và đưa ra dự đoán món ăn cùng với điểm tin cậy.
+Lệnh này sẽ chạy localhost, việc của mình chỉ cần chọn ngôn ngữ, vùng miền, upload ảnh món ăn và ấn phân tích.
 
-## Cách sử dụng
-
-Sau khi hệ thống đã được cài đặt, bạn có thể sử dụng mô hình đã huấn luyện để dự đoán món ăn từ bất kỳ hình ảnh nào.
-
-### Ví dụ
-
-1. Đặt một hình ảnh của món ăn Việt Nam vào thư mục dự án của bạn (ví dụ: `sample.jpg`).
-2. Chạy script phân loại:
-
-   ```bash
-   python classify.py --image_path sample.jpg
-   ```
-
-3. Kết quả sẽ là dự đoán cùng với điểm tin cậy:
-
-   ```
-   Món ăn dự đoán: Phở (Độ tin cậy: 92.3%)
-   ```
 
 ## Đóng góp
 
-Chúng tôi rất hoan nghênh các đóng góp! Nếu bạn muốn đóng góp vào dự án VNFood Recognition, hãy fork repository và gửi pull request. Vui lòng làm theo các hướng dẫn sau:
+Nếu bạn muốn đóng góp vào dự án VNFood Recognition, hãy fork repository và gửi pull request. Vui lòng làm theo các hướng dẫn sau:
 
 1. Fork repository.
 2. Tạo một nhánh tính năng (feature branch).
@@ -101,11 +91,11 @@ Chúng tôi rất hoan nghênh các đóng góp! Nếu bạn muốn đóng góp 
 
 ## Giấy phép
 
-Dự án này được cấp phép dưới Giấy phép MIT - xem file [LICENSE](LICENSE) để biết chi tiết.
+Có thể dùng để tham khảo cách làm. Có thể sử dụng như là project của riêng mình
 
 ## Liên hệ
 
-Nếu bạn có bất kỳ câu hỏi nào hoặc cần thêm sự hỗ trợ, đừng ngần ngại liên hệ với người duy trì dự án:
+Nếu bạn có bất kỳ câu hỏi nào hoặc cần thêm sự hỗ trợ, đừng ngần ngại liên hệ với mình:
 
 - **Tên**: dohungclgt
 - **GitHub**: https://github.com/dohungclgt
