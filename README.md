@@ -59,7 +59,7 @@ pip install -r requirements.txt
 
 ### Bước 3: Chuẩn bị API
 
-Truy cập vào: https://aistudio.google.com/api-keys và dán API key của bạn vào thư mục:
+Truy cập vào: https://aistudio.google.com/api-keys và dán API key của bạn vào thư mục (tạo thư mục nếu chưa có):
 ```bash
 .streamlit/secrets.toml
 ```
