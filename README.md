@@ -38,8 +38,8 @@ VNFood Recognition được xây dựng bằng các kỹ thuật học máy hi�
 ### Bước 1: Clone repository
 
 ```bash
-git clone https://github.com/dohungclgt/VNFood-recognizition.git
-cd VNFood-recognizition
+git clone https://github.com/dohungclgt/VNFood-Recognition.git
+cd VNFood-Recognition
 ```
 
 ### Bước 2: Cài đặt các thư viện phụ thuộc
@@ -99,3 +99,4 @@ Nếu bạn có bất kỳ câu hỏi nào hoặc cần thêm sự hỗ trợ, �
 
 - **Tên**: dohungclgt
 - **GitHub**: https://github.com/dohungclgt
+- **discord**: dohungclgt
